@@ -24,7 +24,7 @@ public class PessoaController {
 
     @PostMapping("/v1/cadastrar")
     @Operation(summary = "Cadastra uma nova pessoa")
-    public ResponseEntity<PessoaCadastroResponse> cadastrarPessoa (@Valid @RequestBody PessoaCadastroRequest pessoaCadastroRequest) {
+    public ResponseEntity<PessoaCadastroResponse> cadastrarPessoa(@Valid @RequestBody PessoaCadastroRequest pessoaCadastroRequest) {
         return ResponseEntity.ok(pessoaService.salvarPessoa(pessoaCadastroRequest));
     }
 
@@ -32,5 +32,12 @@ public class PessoaController {
     @Operation(summary = "Listar todas as pessoas")
     public ResponseEntity<List<PessoaListarResponse>> listarPessoas() {
         return ResponseEntity.ok(pessoaService.listarPessoas());
+    }
+
+    @DeleteMapping("/v1/deletar/{id}")
+    @Operation(summary = "Deleta uma pessoa por ID")
+    public ResponseEntity<Void> deletarPessoa(@PathVariable Long id) {
+        pessoaService.deletarPessoa(id);
+        return ResponseEntity.noContent().build();
     }
 }

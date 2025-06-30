@@ -34,4 +34,11 @@ public class PropriedadeController {
         List<PropriedadeListarResponse> response = service.listarPropriedades();
         return ResponseEntity.ok().body(response);
     }
+
+    @DeleteMapping("/v1/deletar/{id}")
+    @Operation(summary = "Deleta uma propriedade por ID")
+    public ResponseEntity<Void> deletarPropriedade(@PathVariable Long id) {
+        service.deletarPropriedade(id);
+        return ResponseEntity.noContent().build();
+    }
 }

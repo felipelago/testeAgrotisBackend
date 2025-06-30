@@ -33,4 +33,16 @@ public class PropriedadeAdapter {
                 .map(lab -> objectMapper.convertValue(lab, PropriedadeListarResponse.class))
                 .toList();
     }
+
+    public boolean existePorId(Long id) {
+        return propriedadeRepository.existsById(id);
+    }
+
+    public boolean temPessoasVinculadas(Long propriedadeId) {
+        return propriedadeRepository.countPessoasById(propriedadeId) > 0;
+    }
+
+    public void deletarPropriedade(Long id) {
+        propriedadeRepository.deleteById(id);
+    }
 }

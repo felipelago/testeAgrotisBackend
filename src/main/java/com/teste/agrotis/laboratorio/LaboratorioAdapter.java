@@ -60,4 +60,12 @@ public class LaboratorioAdapter {
     public Optional<Laboratorio> buscarEntidadePorId(Long id) {
         return laboratorioRepository.findById(id);
     }
+
+    public boolean existePorId(Long id) {
+        return laboratorioRepository.existsById(id);
+    }
+
+    public void deletarLaboratorio(Long id) {
+        laboratorioRepository.deleteById(id);
+    }
 }

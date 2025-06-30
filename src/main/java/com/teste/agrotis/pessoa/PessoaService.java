@@ -82,4 +82,12 @@ public class PessoaService {
                 new PessoaListarResponse.LaboratorioDTO(pessoa.getLaboratorio().getNome())
         );
     }
+
+    public void deletarPessoa(Long id) {
+        if (!pessoaAdapter.existePorId(id)) {
+            throw new ResourceNotFoundException("Pessoa não encontrada");
+        }
+
+        pessoaAdapter.deletarPessoa(id);
+    }
 }

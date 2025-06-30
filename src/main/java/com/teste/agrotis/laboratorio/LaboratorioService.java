@@ -62,4 +62,16 @@ public class LaboratorioService {
         adapter.salvarLaboratorio(laboratorio);
     }
 
+    public void deletarLaboratorio(Long id) {
+        if (!adapter.existePorId(id)) {
+            throw new ResourceNotFoundException("Laboratório não encontrado");
+        }
+
+        if (adapter.temPessoasVinculadas(id)) {
+            throw new BusinessException("Não é possível deletar laboratório com pessoas vinculadas");
+        }
+
+        adapter.deletarLaboratorio(id);
+    }
+
 }

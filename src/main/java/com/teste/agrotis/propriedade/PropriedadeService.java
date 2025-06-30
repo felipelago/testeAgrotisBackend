@@ -1,6 +1,8 @@
 package com.teste.agrotis.propriedade;
 
+import com.teste.agrotis.exception.BusinessException;
 import com.teste.agrotis.exception.DuplicateResourceException;
+import com.teste.agrotis.exception.ResourceNotFoundException;
 import com.teste.agrotis.propriedade.dto.request.PropriedadeCadastroRequest;
 import com.teste.agrotis.propriedade.dto.response.PropriedadeCadastroResponse;
 import com.teste.agrotis.propriedade.dto.response.PropriedadeListarResponse;
@@ -33,5 +35,17 @@ public class PropriedadeService {
 
     public List<PropriedadeListarResponse> listarPropriedades() {
         return adapter.listarPropriedades();
+    }
+
+    public void deletarPropriedade(Long id) {
+        if (!adapter.existePorId(id)) {
+            throw new ResourceNotFoundException("Propriedade não encontrada");
+        }
+
+        if (adapter.temPessoasVinculadas(id)) {
+            throw new BusinessException("Não é possível deletar propriedade com pessoas vinculadas");
+        }
+
+        adapter.deletarPropriedade(id);
     }
 }

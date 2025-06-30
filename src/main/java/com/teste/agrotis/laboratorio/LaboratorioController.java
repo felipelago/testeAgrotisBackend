@@ -41,7 +41,7 @@ public class LaboratorioController {
 
     @GetMapping("/v1/listar-laboratorios")
     @Operation(summary = "Lista todos os laboratorios ativos e inativos")
-    public ResponseEntity<List<LaboratorioListarResponse>> listarLaboratorios(){
+    public ResponseEntity<List<LaboratorioListarResponse>> listarLaboratorios() {
         return ResponseEntity.ok(laboratorioService.listarLaboratorios());
     }
 
@@ -55,5 +55,12 @@ public class LaboratorioController {
     @Operation(summary = "Inativa um laboratório por ID (path param)")
     public void inativarLaboratorio(@PathVariable Long id) {
         laboratorioService.inativar(id);
+    }
+
+    @DeleteMapping("/v1/deletar/{id}")
+    @Operation(summary = "Deleta um laboratório por ID")
+    public ResponseEntity<Void> deletarLaboratorio(@PathVariable Long id) {
+        laboratorioService.deletarLaboratorio(id);
+        return ResponseEntity.noContent().build();
     }
 }

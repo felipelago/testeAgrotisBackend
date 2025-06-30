@@ -39,4 +39,12 @@ public class PessoaAdapter {
     public List<Pessoa> listarPessoas() {
         return pessoaRepository.findAllWithRelationships();
     }
+
+    public boolean existePorId(Long id) {
+        return pessoaRepository.existsById(id);
+    }
+
+    public void deletarPessoa(Long id) {
+        pessoaRepository.deleteById(id);
+    }
 }
