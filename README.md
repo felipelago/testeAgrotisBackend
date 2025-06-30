@@ -140,6 +140,13 @@ cd agrotis-backend</pre>
   <li><code>GET /pessoas/v1/listar-pessoas</code> - Listar todas</li>
 </ul>
 
+<h3>Relatorio</h3>
+<ul>
+  <li><code>GET /api/laboratorios/v1/relatorio?quantidadeMinima=1&dataInicialStart=2024-01-01T00:00:00&dataInicialEnd=2024-12-31T23:59:59&observacoes=teste</code> - Exemplo de chamada com todos os parâmetros</li>
+  <li><code>GET /api/laboratorios/v1/relatorio?quantidadeMinima=0</code> - Exemplo só com o obrigatório
+</li>
+</ul>
+
 <h2>🧪 Exemplo de Request</h2>
 
 <h3>Cadastrar Pessoa</h3>
