@@ -34,14 +34,14 @@
   <li><strong>Coesão e Acoplamento</strong>
     <ul>
       <li><strong>Feature</strong>: Tudo sobre uma funcionalidade fica junto</li>
-      <li><strong>Camadas</strong>: Classes relacionadas ficam espalhadas em diferentes pacotes</li>
+      <li><strong>Layer</strong>: Classes relacionadas ficam espalhadas em diferentes pacotes</li>
     </ul>
   </li>
   
   <li><strong>Navegação no Código</strong>
     <ul>
       <li><strong>Feature</strong>: Tudo sobre "Pessoa" está em um único lugar</li>
-      <li><strong>Camadas</strong>: Para entender "Pessoa", você navega entre 5 pastas diferentes</li>
+      <li><strong>Layer</strong>: Para entender "Pessoa", você navega entre 5 pastas diferentes</li>
     </ul>
   </li>
   
@@ -55,7 +55,7 @@
   <li><strong>Escalabilidade da Equipe</strong>
     <ul>
       <li><strong>Feature</strong>: Cada desenvolvedor pode trabalhar em sua feature com menos conflitos</li>
-      <li><strong>Camadas</strong>: Desenvolvedores trabalhando em features diferentes colidem nos mesmos pacotes</li>
+      <li><strong>Layer</strong>: Desenvolvedores trabalhando em features diferentes colidem nos mesmos pacotes</li>
     </ul>
   </li>
 </ol>
