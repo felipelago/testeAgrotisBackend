@@ -182,9 +182,8 @@ cd agrotis-backend</pre>
 <h2>📝 Próximos Passos</h2>
 
 <ul>
-  <li>[ ] Implementar endpoint de relatório com filtros avançados</li>
-  <li>[ ] Adicionar testes de integração</li>
+  <li>[ ] Corrigir e melhorar endpoint de relatório com filtros avançados</li>
+  <li>[ ] Adicionar testes unitários</li>
   <li>[ ] Implementar cache para consultas frequentes</li>
   <li>[ ] Adicionar paginação nas listagens</li>
-  <li>[ ] Implementar soft delete para propriedades</li>
 </ul>
