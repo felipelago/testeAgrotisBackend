@@ -2,8 +2,11 @@ package com.teste.agrotis.propriedade;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.teste.agrotis.propriedade.dto.response.PropriedadeCadastroResponse;
+import com.teste.agrotis.propriedade.dto.response.PropriedadeListarResponse;
 import com.teste.agrotis.propriedade.model.Propriedade;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public class PropriedadeAdapter {
@@ -16,13 +19,18 @@ public class PropriedadeAdapter {
         this.objectMapper = objectMapper;
     }
 
-    public PropriedadeCadastroResponse cadastrarPropriedade(Propriedade propriedade) {
-        Propriedade response = propriedadeRepository.save(propriedade);
-        return objectMapper.convertValue(response, PropriedadeCadastroResponse.class);
+    public PropriedadeCadastroResponse salvarPropriedade(Propriedade propriedade) {
+        Propriedade saved = propriedadeRepository.save(propriedade);
+        return objectMapper.convertValue(saved, PropriedadeCadastroResponse.class);
     }
 
-//    public List<PropriedadeListarResponse> listarPropriedades() {
-//        Propriedade response = propriedadeRepository.findAll();
-//        return
-//    }
+    public boolean existePorNome(String nome) {
+        return propriedadeRepository.existsByNome(nome);
+    }
+
+    public List<PropriedadeListarResponse> listarPropriedades() {
+        return propriedadeRepository.findAll().stream()
+                .map(lab -> objectMapper.convertValue(lab, PropriedadeListarResponse.class))
+                .toList();
+    }
 }

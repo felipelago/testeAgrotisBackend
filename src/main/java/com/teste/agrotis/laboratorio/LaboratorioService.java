@@ -1,5 +1,6 @@
 package com.teste.agrotis.laboratorio;
 
+import com.teste.agrotis.exception.DuplicateResourceException;
 import com.teste.agrotis.laboratorio.dto.request.LaboratorioCadastroRequest;
 import com.teste.agrotis.laboratorio.dto.response.LaboratorioCadastroResponse;
 import com.teste.agrotis.laboratorio.dto.response.LaboratorioDropdownResponse;
@@ -24,10 +25,9 @@ public class LaboratorioService {
     }
 
     public LaboratorioCadastroResponse cadastrarLaboratorio(LaboratorioCadastroRequest request) {
-        // TODO - Finalizar o tratamento de exceções.
-//        if (adapter.existePorNome(request.nome())) {
-//            throw new BusinessException("Já existe um laboratório com este nome");
-//        }
+        if (adapter.existePorNome(request.nome())) {
+            throw new DuplicateResourceException("Já existe um laboratório com este nome");
+        }
 
         Laboratorio laboratorio = new Laboratorio();
         laboratorio.setNome(request.nome());
@@ -41,7 +41,7 @@ public class LaboratorioService {
                 .orElseThrow(ChangeSetPersister.NotFoundException::new);
     }
 
-    public List<LaboratorioListarResponse> listarLaboratorios(){
+    public List<LaboratorioListarResponse> listarLaboratorios() {
         return adapter.listarLaboratorios();
     }
 
