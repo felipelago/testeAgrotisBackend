@@ -195,4 +195,5 @@ Antes de cadastrar uma pessoa, você precisa cadastrar um Laboratório e uma Pro
   <li>[ ] Adicionar testes unitários</li>
   <li>[ ] Implementar cache para consultas frequentes</li>
   <li>[ ] Adicionar paginação nas listagens</li>
+  <li>[ ] Adicionar uma camada Util para mapeamento de entidades e DTOs para melhor organização do projeto</li>
 </ul>
