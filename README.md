@@ -143,16 +143,18 @@ cd agrotis-backend</pre>
 <h2>🧪 Exemplo de Request</h2>
 
 <h3>Cadastrar Pessoa</h3>
+Antes de cadastrar uma pessoa, você precisa cadastrar um Laboratório e uma Propriedade, pegar o ID de ambos e preencher no exemplo abaixo.
+
 <pre>{
   "nome": "Jon Doe",
   "dataInicial": "2022-02-02T17:41:44Z",
   "dataFinal": "2022-02-02T17:41:44Z",
   "infosPropriedade": {
-    "id": 12345,
+    "id": 1,
     "nome": "Nome Exemplo da fazenda"
   },
   "laboratorio": {
-    "id": 1234,
+    "id": 1,
     "nome": "Laboratorio exemplo"
   },
   "observacoes": "Observacao exemplo de teste"
