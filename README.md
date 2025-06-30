@@ -126,18 +126,21 @@ cd agrotis-backend</pre>
   <li><code>GET /laboratorios/v1/listar-laboratorios</code> - Listar todos</li>
   <li><code>GET /laboratorios/v1/listar-laboratorios-ativos</code> - Listar ativos (dropdown)</li>
   <li><code>PATCH /laboratorios/v1/inativar-laboratorio/{id}</code> - Inativar</li>
+  <li><code>DELETE /laboratorios/v1/deletar/{id}</code> - Deletar um laboratório por ID</li>
 </ul>
 
 <h3>Propriedades</h3>
 <ul>
   <li><code>POST /propriedades/v1/cadastrar</code> - Cadastrar propriedade</li>
   <li><code>GET /propriedades/v1/listar-propriedades</code> - Listar todas</li>
+  <li><code>DELETE /propriedades/v1/deletar/{id}</code> - Deletar um propriedade por ID</li>
 </ul>
 
 <h3>Pessoas</h3>
 <ul>
   <li><code>POST /pessoas/v1/cadastrar</code> - Cadastrar pessoa</li>
   <li><code>GET /pessoas/v1/listar-pessoas</code> - Listar todas</li>
+  <li><code>DELETE /pessoas/v1/deletar/{id}</code> - Deletar uma pessoa por ID</li>
 </ul>
 
 <h3>Relatorio</h3>
