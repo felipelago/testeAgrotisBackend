@@ -57,11 +57,7 @@ public class LaboratorioAdapter {
         return laboratorioRepository.countPessoasById(laboratorioId) > 0;
     }
 
-//    public void inativar(Long id) {
-//        Laboratorio laboratorio = laboratorioRepository.findById(id)
-//                .orElseThrow(() -> new NotFoundException("Laboratório não encontrado"));
-//
-//        laboratorio.setAtivo(false);
-//        laboratorioRepository.save(laboratorio);
-//    }
+    public Optional<Laboratorio> buscarEntidadePorId(Long id) {
+        return laboratorioRepository.findById(id);
+    }
 }

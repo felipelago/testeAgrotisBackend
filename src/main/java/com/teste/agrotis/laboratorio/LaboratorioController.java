@@ -2,6 +2,7 @@ package com.teste.agrotis.laboratorio;
 
 import com.teste.agrotis.laboratorio.dto.request.LaboratorioCadastroRequest;
 import com.teste.agrotis.laboratorio.dto.response.LaboratorioCadastroResponse;
+import com.teste.agrotis.laboratorio.dto.response.LaboratorioDropdownResponse;
 import com.teste.agrotis.laboratorio.dto.response.LaboratorioListarPorIdResponse;
 import com.teste.agrotis.laboratorio.dto.response.LaboratorioListarResponse;
 import jakarta.validation.Valid;
@@ -40,17 +41,13 @@ public class LaboratorioController {
         return ResponseEntity.ok(laboratorioService.listarLaboratorios());
     }
 
+    @GetMapping("/v1/listar-laboratorios-ativos")
+    public List<LaboratorioDropdownResponse> listarAtivos() {
+        return laboratorioService.listarAtivos();
+    }
 
-    //TODO - finalizar esses endpoints
-//    public void inativar(Long id) {
-//        if (laboratorioAdapter.temPessoasVinculadas(id)) {
-//            throw new BusinessException("Não é possível inativar laboratório com pessoas vinculadas");
-//        }
-//
-//        laboratorioAdapter.inativar(id);
-//    }
-
-//    public List<LaboratorioDropdownResponse> listarAtivos() {
-//        return laboratorioAdapter.buscarAtivos();
-//    }
+    @PatchMapping("/v1/inativar-laboratorio/{id}")
+    public void inativarLaboratorio(@PathVariable Long id) {
+        laboratorioService.inativar(id);
+    }
 }
