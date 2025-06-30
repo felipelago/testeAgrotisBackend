@@ -143,7 +143,7 @@ cd agrotis-backend</pre>
   <li><code>DELETE /pessoas/v1/deletar/{id}</code> - Deletar uma pessoa por ID</li>
 </ul>
 
-<h3>Relatorio</h3>
+<h3>Relatório</h3>
 <ul>
   <li><code>GET /api/laboratorios/v1/relatorio?quantidadeMinima=1&dataInicialStart=2022-02-02T17:41:44&dataInicialEnd=2022-02-02T17:41:44&observacoes=teste</code> - Exemplo de chamada com todos os parâmetros</li>
   <li><code>GET /api/laboratorios/v1/relatorio?quantidadeMinima=0</code> - Exemplo só com o obrigatório
