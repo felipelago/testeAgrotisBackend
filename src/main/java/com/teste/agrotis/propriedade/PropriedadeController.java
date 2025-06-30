@@ -3,6 +3,7 @@ package com.teste.agrotis.propriedade;
 import com.teste.agrotis.propriedade.dto.request.PropriedadeCadastroRequest;
 import com.teste.agrotis.propriedade.dto.response.PropriedadeCadastroResponse;
 import com.teste.agrotis.propriedade.dto.response.PropriedadeListarResponse;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,14 +22,14 @@ public class PropriedadeController {
     }
 
     @PostMapping("/v1/cadastrar")
-    //@Operation(summary = "Cadastra uma propriedade")
+    @Operation(summary = "Cadastra uma propriedade")
     public ResponseEntity<PropriedadeCadastroResponse> cadastrarPropriedade(@Valid @RequestBody PropriedadeCadastroRequest request) {
         PropriedadeCadastroResponse response = service.cadastrarPropriedade(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @GetMapping("/v1/listar-propriedades")
-    //@Operation(summary = "Lista todas as propriedades")
+    @Operation(summary = "Lista todas as propriedades")
     public ResponseEntity<List<PropriedadeListarResponse>> listarPropriedades() {
         List<PropriedadeListarResponse> response = service.listarPropriedades();
         return ResponseEntity.ok().body(response);
